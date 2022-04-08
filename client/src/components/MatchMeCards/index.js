@@ -1,5 +1,10 @@
+import MatchCards from "./MatchCards";
+
 const MatchMeCards = () => {
-    return(<><div>MATCH ME CARDS</div></>)
+    return(<>
+        <div>
+        <MatchCards/>
+        </div></>)
 
 }
 
