@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FaComment, FaUser } from "react-icons/fa";
-import logo from "../imgs/matchLogo.png";
+import logo from "../components/matchLogo.png";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
@@ -35,7 +35,7 @@ cursor: pointer;
     font-size: 25px;
     margin: 20px;
     color: lightgray;
-    transition: all 1s;
+    transition: all .5s;
     &:hover{
         color: gray;
         transform: scale(1.1);
