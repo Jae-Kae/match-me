@@ -7,9 +7,15 @@ import HomePage from "./Homepage";
 import SignIn from "./SignIn";
 import MatchMeCards from "./MatchMeCards";
 import ErrorPage from "./ErrorPage";
+import { useCurrentUserContext } from "./CurrentUserContext";
+
 ////=================================================================
 
+
+
 const App = () => {
+const {loading, error, currentUser} = useCurrentUserContext()
+
   return (<>
     <Router>
       <Header/>

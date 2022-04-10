@@ -6,7 +6,7 @@ const morgan = require("morgan");
 
 const PORT = 4000;
 
-const {getUsers, createUser, getGenres} = require("./handlers")
+// const {getUsers, createUser, getGenres} = require("./handlers")
 
 express()
 
@@ -21,13 +21,13 @@ express()
     //endpoints below
   // ---------------------------------
 
-  .get("/api/get-users", getUsers)
-  .get("/api/get-genres", getGenres)
+//   .get("/api/get-users", getUsers)
+//   .get("/api/get-genres", getGenres)
 
 
 
-//create a new user
-.post("/api/create-user", createUser)
+// //create a new user
+// .post("/api/create-user", createUser)
 
 
 //catch all endpoint
