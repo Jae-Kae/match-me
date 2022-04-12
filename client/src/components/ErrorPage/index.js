@@ -1,5 +1,7 @@
+import PageNotFound from "./PageNotFound"
+
 const ErrorPage = () => {
-    return(<><div>OOPS SOMETHING WENT WRONG</div></>)
+    return(<><PageNotFound/></>)
 
 }
 

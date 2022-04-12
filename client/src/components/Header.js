@@ -11,7 +11,7 @@ const Header = () => {
           <FaUser className="headerIcon" />
         </Nav>
         <img src={logo} alt="match me logo" />
-        <Nav to="/profile">
+        <Nav to="/chat">
         <FaComment className="headerIcon" />
         </Nav>
       </HeaderDiv>

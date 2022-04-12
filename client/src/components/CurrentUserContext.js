@@ -5,7 +5,9 @@ import {createUserWithEmailAndPassword,
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signOut,
-    sendPasswordResetEmail} from "firebase/auth"
+    sendPasswordResetEmail,
+    signInWithPopup,
+    GoogleAuthProvider} from "firebase/auth"
 
 const CurrentUserContext = createContext({});
 
@@ -15,6 +17,7 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState();
   const [error, setError] = useState("");
+  const provider = new GoogleAuthProvider();
 
   useEffect(()=>{
     setLoading(true)
@@ -39,7 +42,7 @@ export const CurrentUserProvider = ({ children }) => {
       .finally(()=>{setLoading(false)})
   };
 
-  const signInUser = (email, name, password) => {
+  const signInUser = (email, password) => {
       setLoading(true)
       signInWithEmailAndPassword(auth, email, password)
       .then(res => console.log(res))
@@ -55,16 +58,46 @@ export const CurrentUserProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email)
   }
 
+  const signInWithGoogle = () => {
+    setLoading(true)
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    console.log(result)
+    // const credential = GoogleAuthProvider.credentialFromResult(result);
+    // const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    setCurrentUser(user)
+    console.log("Google USER:", user)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    // const errorCode = error.code;
+    const errorMessage = error.message;
+    setError(errorMessage)
+    // The email of the user's account used.
+    // const email = error.email;
+    // The AuthCredential type that was used.
+    // const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  })
+  .finally(()=>{setLoading(false)});
+
+  }
+
   return (
     <CurrentUserContext.Provider 
     value={{
         currentUser,
         loading,
         error,
+        setLoading,
         registerUser,
         signInUser,
         logoutUser,
         forgotPassword,
+        signInWithGoogle
     }}>
       {children}
     </CurrentUserContext.Provider>
