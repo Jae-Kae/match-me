@@ -31,11 +31,11 @@ express()
 
 
 //catch all endpoint
-.get("*", (req, res) => {
-    res.status(404).json({
-    status: 404,
-    message: "This is obviously not what you are looking for.",
-    });
-})
+// .get("*", (req, res) => {
+//     res.status(404).json({
+//     status: 404,
+//     message: "This is obviously not what you are looking for.",
+//     });
+// })
 
 .listen(PORT, () => console.info(`Listening on port ${PORT}`));

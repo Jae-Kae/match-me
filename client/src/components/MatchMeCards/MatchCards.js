@@ -6,7 +6,7 @@ import { AppContext } from "../AppContext"
 
 const MatchCards = () => {
     const {users} = useContext(AppContext);
-    
+    console.log("USERS MATCHCARD:", users)
 
     return(
         <CardsContainer>

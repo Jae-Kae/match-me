@@ -5,7 +5,9 @@ import {createGlobalStyle} from "styled-components"
 
 
 
-
+export const COLORS = {
+  primary: "#02ADEF"
+}
 
 const GlobalStyle = createGlobalStyle`
 *{
