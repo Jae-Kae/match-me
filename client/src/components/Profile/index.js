@@ -1,8 +1,7 @@
 import Profile from "./Profile";
 import styled from "styled-components";
-import EditProfile from "./EditProfile";
 import { useCurrentUserContext } from "../CurrentUserContext";
-import UserProfile from "./UserProfile";
+
 
 const ProfilePage = () => {
   const { error } = useCurrentUserContext();
@@ -11,7 +10,6 @@ const ProfilePage = () => {
       <Page>
         {error && <Error>{error}</Error>}
         <Profile />
-        {/* <UserProfile/> */}
       </Page>
     </>
   );

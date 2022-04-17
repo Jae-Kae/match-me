@@ -1,7 +1,7 @@
 
 
 const ChooseGenrePage = () =>{
-    return(<><div>CHOOSE GENRE PAGE</div></>)
+    return(<></>)
 }
 
 export default ChooseGenrePage;
