@@ -10,6 +10,7 @@ import UserProfile from "./Profile/UserProfile";
 import EditProfile from "./Profile/EditProfile";
 import styled from "styled-components";
 import LoadingPage from "./LoadingPage";
+import SwipeButtons from "./MatchMeCards/SwipeButtons";
 
 // import ChatScreen from "./Chat";
 // import HomePage from "./Homepage";
@@ -31,14 +32,27 @@ const App = () => {
               <Route exact path="/">
                 {currentUser ? <ProfilePage /> : <SignIn />}
               </Route>
+
               <Route exact path="/profile/:id">
                 <UserProfile />
               </Route>
-              <Route exact path="/edit">
-                <EditProfile />
-              </Route>
+              {currentUser ? (
+                <Route exact path="/edit">
+                  <EditProfile />
+                </Route>
+              ) : (
+                <Route exact path="/edit">
+                  <ErrorPage />
+                </Route>
+              )}
+
               <Route exact path="/matchMeCards">
                 <MatchMeCards />
+                <SwipeButtons/>
+              </Route>
+
+              <Route exact path="/chat/:id">
+              <h1>CHAT PAGE</h1>
               </Route>
 
               <Route exact path="/*">
@@ -62,23 +76,3 @@ const Page = styled.div`
 `;
 
 export default App;
-
-{
-  /* <Route exact path="/profile/:id">
-<ProfilePage/>
-</Route>
-<Route exact path="/chat/:user">
-<ChatScreen/>
-</Route>
- */
-}
-
-{
-  /* <Route exact path="profile">
-<ProfilePage />
-</Route>
-
-<Route exact path="/matchMeCards">
-<MatchMeCards />
-</Route> */
-}

@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { upload } from "../storage";
 import { useCurrentUserContext } from "../CurrentUserContext";
 import { useState } from "react";
+import ChooseGenreForm from "../ChooseGenrePage/ChooseGenreForm";
 
 const EditProfile = () => {
   //   const { profileId } = useParams();
-  const { currentUser, logoutUser, setLoading, loading } =
-    useCurrentUserContext();
+  const { currentUser, setLoading, loading } = useCurrentUserContext();
   const [photo, setPhoto] = useState(null);
 
   const handleChange = (e) => {
@@ -15,6 +15,7 @@ const EditProfile = () => {
       setPhoto(e.target.files[0]);
     }
   };
+  
 
   const handleClick = () => {
     upload(photo, currentUser, setLoading).then(() => {
@@ -22,20 +23,23 @@ const EditProfile = () => {
     });
   };
 
+  console.log("CURRENT USER:", currentUser);
+
   return (
     <>
       <Container>
         <PersonInfo>
-          <PersonImage src={currentUser.photoURL} />
+          <PersonImage src={currentUser?.photoURL} />
           <div>
             <input type="file" onChange={handleChange} />
             <button disabled={loading || !photo} onClick={handleClick}>
               Upload
             </button>
           </div>
-          <h2>{currentUser.displayName}</h2>
+          <h2>{currentUser?.displayName}</h2>
           <br />
           <Divider />
+          <ChooseGenreForm />
         </PersonInfo>
       </Container>
     </>
@@ -66,7 +70,7 @@ const PersonInfo = styled.div`
   input {
     margin: 20px;
   }
-  div{
+  div {
     margin: 25px 0px;
   }
 `;

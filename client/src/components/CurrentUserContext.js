@@ -9,7 +9,7 @@ import {createUserWithEmailAndPassword,
     signInWithPopup,
     GoogleAuthProvider} from "firebase/auth"
 
-const CurrentUserContext = createContext({});
+const CurrentUserContext = createContext({}); 
 
 export const useCurrentUserContext = () => useContext(CurrentUserContext);
 
@@ -17,6 +17,9 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState();
   const [error, setError] = useState("");
+  const [currentGenre, setCurrentGenre] = useState([])
+
+   
   const provider = new GoogleAuthProvider();
 
   useEffect(()=>{
@@ -30,14 +33,16 @@ export const CurrentUserProvider = ({ children }) => {
   },[])
 
 
+
   const registerUser = (email, name, password) => {
       setLoading(true)
       createUserWithEmailAndPassword(auth, email, password)
       .then(()=>{
          return updateProfile(auth.currentUser, {
-              displayName: name
-          })
-      }).then(res => console.log(res))
+              displayName: name  
+            })
+          }).then(res => console.log(res))
+
       .catch(err => setError(err.message))
       .finally(()=>{setLoading(false)})
   };
@@ -97,7 +102,9 @@ export const CurrentUserProvider = ({ children }) => {
         signInUser,
         logoutUser,
         forgotPassword,
-        signInWithGoogle
+        signInWithGoogle,
+        currentGenre, 
+        setCurrentGenre
     }}>
       {children}
     </CurrentUserContext.Provider>

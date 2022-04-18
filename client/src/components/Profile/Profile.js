@@ -1,7 +1,8 @@
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import GenreArea from "../ChooseGenrePage/GenreArea";
 import { useCurrentUserContext } from "../CurrentUserContext";
-import EditProfile from "./EditProfile";
+
 
 const Profile = () => {
    
@@ -16,11 +17,14 @@ const Profile = () => {
             <button onClick={logoutUser}>Log Out</button>
             <EditBtn to="/edit">Edit</EditBtn>
             </div>
-            <PersonImage src={currentUser.photoURL}/>
+            <PersonImage src={currentUser?.photoURL}/>
             <h2>{currentUser.displayName}</h2>
             <br/>
         <Divider/>
+            <h3>My Top Genre</h3>
+            <p>click to find your match</p>
         </PersonInfo>
+        <GenreArea/>
        
     </Container>
     
@@ -60,6 +64,9 @@ button {
   }
   h2{
       margin-top: 25px;
+  }
+  h3{
+    margin: 25px 0px;
   }
 `
 

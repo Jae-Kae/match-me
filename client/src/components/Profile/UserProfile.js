@@ -1,23 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { db } from "../../firebase/firebase";
-import { collection, doc } from "firebase/firestore";
 import { AppContext } from "../AppContext";
 
-import EditProfile from "./EditProfile";
 
 const UserProfile = () => {
   const { id } = useParams();
   const [user, setUser] = useState();
   const { allUsers } = useContext(AppContext);
 
-//   console.log("ALL USERS:", allUsers);
+
 
      useEffect(()=>{
   if (allUsers.length > 0) {
       const userArray = allUsers.filter((user) => {
-        return user.Id === id;
+        return user.id === id;
       })
     setUser(userArray[0]);
   }
@@ -28,14 +25,12 @@ console.log("username", user?.name)
     <>
       <Container>
         <PersonInfo>
-          Test {user?.name}
-          {/* <div>
-            <button onClick={logoutUser}>Log Out</button>
-            <button>Edit</button>
-            </div>
-            <PersonImage src={currentUser.photoURL}/>
-            <h2>{currentUser.displayName}</h2>
-            <br/> */}
+          {user?.name}
+         
+            <PersonImage src={user?.photoURL}/>
+            <h2>{user?.name}</h2>
+            <p>Bio</p>
+            <br/>
           <Divider />
         </PersonInfo>
       </Container>
@@ -74,6 +69,9 @@ const PersonInfo = styled.div`
   }
   h2 {
     margin-top: 25px;
+  }
+  p{
+    margin-top: 15px;
   }
 `;
 

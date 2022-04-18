@@ -10,7 +10,12 @@ const Header = () => {
         <Nav to="/">
           <FaUser className="headerIcon" />
         </Nav>
+        <div>
+        <Nav to="/">
         <img src={logo} alt="match me logo" />
+        </Nav>
+        <h2>Match Me</h2>
+        </div>
         <Nav to="/chat">
         <FaComment className="headerIcon" />
         </Nav>
@@ -26,6 +31,10 @@ const HeaderDiv = styled.div`
   border-bottom: 1px solid #f9f9f9;
   img {
     height: 45px;
+  }
+  div{
+    text-align: center;
+    color: #f58277;
   }
 `;
 

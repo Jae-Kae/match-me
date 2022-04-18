@@ -8,6 +8,7 @@ const SignupForm = () => {
   const psdRef = useRef();
   const { registerUser } = useCurrentUserContext();
 
+
   const onSubmit = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -15,6 +16,7 @@ const SignupForm = () => {
     const password = psdRef.current.value;
     if (email && password && name) registerUser(email, name, password);
   };
+
 
   return (
     <FormContainer className="form">

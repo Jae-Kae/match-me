@@ -5,13 +5,13 @@ import Auth from "./Auth";
 
 
 const SignIn = () =>{
-    const {currentUser} = useCurrentUserContext()
-
+const { error } = useCurrentUserContext()
     return(<>
     <Page>
       <div>
       <h3>Match yourself with people who like the same music as you.</h3>
       </div>
+      {error && <Error>{error}</Error>}
     <Auth/>
     </Page>
     </>)
@@ -30,6 +30,16 @@ const Page = styled.div`
     margin: 25px;
   }
 `
+
+const Error = styled.p`
+  background-color: tomato;
+  color: white;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: bold;
+  max-width: 400px;
+  margin-bottom: 18px;
+`;
 
 
 export default SignIn;
