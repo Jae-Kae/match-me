@@ -19,7 +19,7 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState();
   const [error, setError] = useState("");
-  const [currentGenre, setCurrentGenre] = useState(["soul"]);
+  const [currentGenre, setCurrentGenre] = useState([]);
   const [eventInfo, setEventInfo] = useState([]);
   const [bioValue, setBioValue] = useState("");
 
