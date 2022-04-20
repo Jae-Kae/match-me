@@ -11,7 +11,7 @@ const ChooseGenreForm = () => {
   const [selectState, setSelectState] = useState("");
 
   const handleChange = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     let choicesCopy = [];
     choicesCopy = [e.target.value, ...choicesArray];
     setChoicesArray(choicesCopy);
@@ -27,12 +27,12 @@ const ChooseGenreForm = () => {
         choicesCopy,
         currentuser: currentUser.uid,
       }),
-    }).then(() => {
+    }).then((res) => {
       setCurrentGenre(choicesCopy);
-    });
+      window.location.href = "http://localhost:3000/edit"
+    })
   };
 
-  console.log("choice", currentUser.uid);
   console.log("choice", choicesArray);
 
   return (

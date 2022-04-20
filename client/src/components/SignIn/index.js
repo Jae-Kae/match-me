@@ -11,6 +11,7 @@ const { error } = useCurrentUserContext()
       <div>
       <h3>Match yourself with people who like the same music as you.</h3>
       </div>
+      <h4>Then take them to an event in your area.</h4>
       {error && <Error>{error}</Error>}
     <Auth/>
     </Page>
@@ -28,6 +29,9 @@ const Page = styled.div`
   flex-direction: column;
   div{
     margin: 25px;
+  }
+  h4{
+    color: #f58277;
   }
 `
 

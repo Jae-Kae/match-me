@@ -37,15 +37,15 @@ const MatchCards = () => {
 
   return (
     <CardsContainer>
-      {genreMatched ? (
+      {genreMatched.length > 0 ? (
         genreMatched.map((user) => {
           return (
             <TinderCard
               onSwipe={(swipe) => {
-                if(swipe === "up"){
-                  window.location.href = `http://localhost:3000/profile/${user.id}`
-                }else if (swipe === "down"){
-                  window.location.href = `http://localhost:3000/chat/${user.id}`
+                if (swipe === "up") {
+                  window.location.href = `http://localhost:3000/profile/${user.id}`;
+                } else if (swipe === "down") {
+                  window.location.href = "http://localhost:3000/chat";
                 }
               }}
               className="swipe"
@@ -59,7 +59,10 @@ const MatchCards = () => {
           );
         })
       ) : (
-        <></>
+        <>
+          {" "}
+          <h1>Uh Oh! No Matches Here.</h1>
+        </>
       )}
     </CardsContainer>
   );

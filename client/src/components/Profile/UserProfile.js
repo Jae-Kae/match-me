@@ -10,7 +10,6 @@ const UserProfile = () => {
   const { allUsers } = useContext(AppContext);
 
 
-
      useEffect(()=>{
   if (allUsers.length > 0) {
       const userArray = allUsers.filter((user) => {
@@ -20,18 +19,20 @@ const UserProfile = () => {
   }
      },[allUsers])
 
-console.log("username", user?.name)
+console.log("username", user?.displayName)
   return (
     <>
       <Container>
         <PersonInfo>
-          {user?.name}
-         
             <PersonImage src={user?.photoURL}/>
-            <h2>{user?.name}</h2>
-            <p>Bio</p>
-            <br/>
+            <h2>{user?.displayName}</h2>
           <Divider />
+          <br/>
+            <h3>Bio</h3>
+            <p>{user?.bio ?? `${user?.displayName} hasn't told us about themselves yet` }</p>
+            <br/>
+            <br/>
+            <Divider />
         </PersonInfo>
       </Container>
     </>
@@ -46,6 +47,7 @@ const PersonInfo = styled.div`
   flex-direction: column;
   align-items: center;
   width: 70vw;
+  text-align: center;
 
   button {
     background-color: #02adef;
@@ -69,9 +71,21 @@ const PersonInfo = styled.div`
   }
   h2 {
     margin-top: 25px;
+    margin-bottom: 15px;
+  }
+  h3{
+    font-weight: bolder;
+    color: #02adef;
   }
   p{
     margin-top: 15px;
+    width: 50%;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
+  h4{
+    margin: 15px;
   }
 `;
 

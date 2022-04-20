@@ -10,10 +10,8 @@ import UserProfile from "./Profile/UserProfile";
 import EditProfile from "./Profile/EditProfile";
 import styled from "styled-components";
 import LoadingPage from "./LoadingPage";
-import SwipeButtons from "./MatchMeCards/SwipeButtons";
-
-// import ChatScreen from "./Chat";
-// import HomePage from "./Homepage";
+import ChatRoom from "./Chats/ChatRoom";
+import TicketMaster from "./TicketMaster";
 
 ////=================================================================
 
@@ -48,12 +46,19 @@ const App = () => {
 
               <Route exact path="/matchMeCards">
                 <MatchMeCards />
-                <SwipeButtons/>
               </Route>
-
-              <Route exact path="/chat/:id">
-              <h1>CHAT PAGE</h1>
+              <Route exact path="/events">
+                <TicketMaster/>
               </Route>
+              {currentUser ? (
+                <Route exact path="/chat">
+                  <ChatRoom />
+                </Route>
+              ) : (
+                <Route exact path="/chat">
+                  <SignIn />
+                </Route>
+              )}
 
               <Route exact path="/*">
                 <ErrorPage />

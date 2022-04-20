@@ -9,7 +9,7 @@ const Storage = () => {};
 export const upload = async (file, currentUser, setLoading) => {
   const fileRef = ref(storage, currentUser.uid);
   setLoading(true);
-  const snapshot = await uploadBytes(fileRef, file);
+   await uploadBytes(fileRef, file);
   const photoURL = await getDownloadURL(fileRef);
 
   updateProfile(currentUser, { photoURL: photoURL });

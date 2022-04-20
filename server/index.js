@@ -8,11 +8,11 @@ const PORT = 4000;
 //import the handlers
 const {
   getUsers,
-  createUser,
   getGenres,
   updateGenres,
-  getSpotify,
   getGenreEvents,
+  getMessages,
+  updateBio,
 } = require("./handlers");
 
 express()
@@ -40,14 +40,17 @@ express()
   //read user & genres information from database
   .get("/api/get-users", getUsers)
   .get("/api/get-genres", getGenres)
-  .get("/api/get-spotify", getSpotify)
-  .get("/discovery/v2/events", getGenreEvents)
+  .get("/discovery/v2/events/:keyword", getGenreEvents)
+  
+  //read messages from messages collection
+  .get("/api/get-messages", getMessages)
 
-  // //create a new user
-  .post("/api/create-user", createUser)
+
 
   //update user genres
   .put("/api/update-genres", updateGenres)
+  //update user bio
+  .put("/api/add-bio", updateBio)
 
   // catch all endpoint
   .get("*", (req, res) => {
