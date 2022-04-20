@@ -23,7 +23,7 @@ const SignupForm = () => {
       <h2> New User</h2>
       <Form onSubmit={onSubmit}>
         <input placeholder="Email" type="email" ref={emailRef} />
-        <input placeholder="Name" type="name" ref={nameRef} />
+        <input placeholder="Username" type="name" ref={nameRef} />
         <input placeholder="Password" type="password" ref={psdRef} />
         <button type="submit">Register</button>
       </Form>

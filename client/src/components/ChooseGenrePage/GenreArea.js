@@ -11,38 +11,34 @@ const GenreArea = () => {
     useCurrentUserContext();
   const { allUsers } = useContext(AppContext);
  
-//
+//sett currentGenre state to users choice
   useEffect(() => {
     if (allUsers && currentUser) {
   
 
       const CurrentUserData = allUsers.find((user) => {
-        console.log("Current from GA", currentUser, user.id);
         if (currentUser.uid === user.id) {
           return user;
         }
       });
       if (CurrentUserData) {
         setCurrentGenre(CurrentUserData.genres);
+       
       }
-      console.log("Current User's Genre", CurrentUserData);
+     
     }
 
-    // allUsers.map((user) => {
-    //   if (currentUser.uid === user.id) {
-    //     setCurrentGenre(user.genres);
-    //   }
-    // });
+
   }, [currentUser, allUsers]);
 
   return (
     <>
       <Container>
-        {currentGenre === [] ? (
+        {/* {currentGenre === [] ? (
           <></>
-        ) : (
-          <GenreBtn to="/matchMeCards">{currentGenre}</GenreBtn>
-        )}
+        ) : ( */}
+          <GenreBtn to="/matchMeCards">{currentGenre ?? currentGenre}</GenreBtn>
+        {/* )} */}
       </Container>
     </>
   );
@@ -52,6 +48,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 50px;
   /* width: 50%; */
   /* min-height: 100vh; */
   /* flex-direction: column; */
@@ -76,19 +73,3 @@ const GenreBtn = styled(NavLink)`
 `;
 
 export default GenreArea;
-
-// useEffect(() => {
-//   const getAllGenres = async (db) => {
-//     const genres = collection(db, "genres");
-//     const genresSnapshot = await getDocs(genres);
-//     //create list of documents
-//     const genresArray = genresSnapshot.docs.map((doc) => doc.data());
-
-//     return setAllGenres(genresArray[0]);
-//   }
-//   getAllGenres(db);
-// }, []);
-
-// console.log("GENRES", allGenres)
-// const genreArr = allGenres?.genres
-// console.log("ARRAY2", genreArr)

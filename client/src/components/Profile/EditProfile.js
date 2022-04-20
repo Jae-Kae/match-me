@@ -4,6 +4,7 @@ import { upload } from "../storage";
 import { useCurrentUserContext } from "../CurrentUserContext";
 import { useState } from "react";
 import ChooseGenreForm from "../ChooseGenrePage/ChooseGenreForm";
+import BioForm from "../Bio/BioForm";
 
 const EditProfile = () => {
   //   const { profileId } = useParams();
@@ -40,6 +41,8 @@ const EditProfile = () => {
           <br />
           <Divider />
           <ChooseGenreForm />
+          <Divider />
+          <BioForm/>
         </PersonInfo>
       </Container>
     </>
