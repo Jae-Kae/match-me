@@ -1,9 +1,8 @@
 Match Me is a new social media app designed to connect people who love the same genres of music.
 Match with someone and go see an event based on that specific genre of music!
 
-Comes with chat feature:
+Comes with chat feature:<img width="456" alt="Screen Shot 2022-04-25 at 12 02 04 PM" src="https://user-images.githubusercontent.com/89861879/165156524-ada64a75-1f03-4b9f-8db3-a66576d341fe.png">
 
-<img width="482" alt="Screen Shot 2022-04-20 at 9 29 59 AM" src="https://user-images.githubusercontent.com/89861879/164278875-ce7a2af9-38ae-4280-9b4c-90a2ee910e97.png">
 
 
 User Profile:
