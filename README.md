@@ -12,7 +12,8 @@ Users can create a profile with a bio and profile photo.
 
 ##### Swipe Match Me Cards:
 Find the match for you by swiping left and right to skip. Swipe up to see the users profile and down to chat with them.
-![MatchCards2](https://user-images.githubusercontent.com/89861879/165171650-500ec64f-83df-439f-b7f9-ea1813ea5115.gif)
+![MatchCards3](https://user-images.githubusercontent.com/89861879/165224319-60c1f1a1-6e37-4811-aed4-7b74303341bd.gif)
+
 
 
 
