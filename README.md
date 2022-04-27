@@ -5,6 +5,11 @@ Match with someone and go see an event based on that specific genre of music!
 
 
 
+#### Sign Up/Sign In
+Users can sign up with their email, username and password or they can sign up using Google. The chosen password is then encrypted and stored using Fireba
+se's authentication. If the user tries to sign in with the wrong email or password an error message will be shown.
+![Screen Shot 2022-04-27 at 10 02 20 AM](https://user-images.githubusercontent.com/89861879/165580321-06251ad3-2c66-4589-8a35-ae5a6f9b3bda.png)
+
 
 #### User Profile:
 Users can create a profile with a bio and profile photo.
